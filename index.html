@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Pix</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; margin: 0; }
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; width: 300px; }
+        .pix-box { display: flex; align-items: center; background: #eee; padding: 10px; border-radius: 8px; margin-top: 15px; cursor: pointer; border: 1px solid #ddd; }
+        .pix-text { flex-grow: 1; font-size: 14px; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .copy-icon { font-size: 18px; margin-left: 10px; color: #007bff; }
+        .btn-copy { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; cursor: pointer; width: 100%; font-weight: bold; }
+        .btn-copy:active { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h3>Pagar via Pix</h3>
+    <p>Clique abaixo para copiar a chave:</p>
+    
+    <div class="pix-box" onclick="copyPix()">
+        <span id="pixKey" class="pix-text">miltonfunilaria90@gmail.com</span>
+        <span class="copy-icon">📋</span>
+    </div>
+
+    <button class="btn-copy" onclick="copyPix()">COPIAR CHAVE PIX</button>
+    
+    <p style="font-size: 12px; color: #666; margin-top: 15px;">Nome: Milton Moreira dos Santos</p>
+</div>
+
+<script>
+    function copyPix() {
+        const text = document.getElementById("pixKey").innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Chave Pix copiada com sucesso!");
+        });
+    }
+</script>
+
+</body>
+</html>
